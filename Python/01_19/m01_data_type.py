@@ -1,0 +1,22 @@
+print('Bienvenido')
+print('Tipo entero')
+print(type(23))
+print('Tipo decimal')
+print(type(23.0))
+print('Tipo cadena')
+print(type("Hola"))
+print('Tipo booleano')
+print(type(True))
+#ejemplos de cadena
+print("Saludo"*4)
+print("*"*100)
+print("*"+"Pepe")
+variable = "Cadena en variable                "
+variable = "     Suma esto a " + variable
+print(variable)
+print(variable[3])
+print(variable[3:11])
+print(variable.lower())
+print(variable.upper())
+print(variable.capitalize())
+print(variable.strip())
