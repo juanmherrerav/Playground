@@ -1,6 +1,7 @@
-from tkinter.ttk import Separator
-import pandas as pd
+import os
+
 import numpy as np
+import pandas as pd
 
 
 def separador():
@@ -113,9 +114,61 @@ def proceso():
     separador()
     incomplete_data = [[np.nan, 100, 200], [np.nan, 100, 300],
                        [300, np.nan, 400], [400, 100, 500]]
-    dataframe = incomplete_data
+    dataframe = pd.DataFrame(incomplete_data, index=filas, columns=columnas)
     print(f"Data frame con valores NaN :\n\
         {dataframe}")
-    
+    sin_na_dataframe = dataframe.dropna(axis=1)
+    print(f"Data frame sin valores NaN (elimina columnas enteras si axis=1):\n\
+        {sin_na_dataframe}")
+    fill_na_dataframe = dataframe.fillna(value=90)
+    print(f"Data frame sin valores NaN rellenados con 90:\n\
+        {fill_na_dataframe}")
+    media = dataframe.mean()
+    print(f"La media es igual a:\n{media}")
+    avgfill_na_dataframe = dataframe.fillna(value=media)
+    print(f"Dataframe donde Nan son rellenos con el promedio por columna:\n\
+        {avgfill_na_dataframe}")
+    dataframe = avgfill_na_dataframe
+
+    separador()
+    data1 = dataframe.copy()
+    data2 = dataframe.copy()
+    print(f"df1:\n{data1}")
+    print(f"df2:\n{data2}")
+    data_join_axis0 = pd.concat([data1, data2], axis=0)
+    data_join_axis1 = pd.concat([data1, data2], axis=1)
+    print(f"df join axis 0 or to the column:\n{data_join_axis0}")
+    print(f"df join axis 1 or to the row:\n{data_join_axis1}")
+
+    separador()
+    print(f"{dataframe}")
+    print(f"Valores unicos en columna ['articulo1'] :\n\
+    {dataframe['articulo1'].unique()}")
+    print(f"frecuencias de valores en columna ['articulo1'] :\n\
+    {dataframe['articulo1'].value_counts()}")
+
+    separador()
+    print(f"{data_join_axis0}")
+    data_join_axis0= data_join_axis0.apply(lambda x: x*3)
+    print(f"DF con operador lambda x: x*3:\n\
+        {data_join_axis0}")
+
+    separador()
+    print(f"{data_join_axis0}")
+    print(f"Columnas del DF:\n{data_join_axis0.columns}")
+    print(f"Indices del DF:\n{data_join_axis0.index}")
+    print(f"DF ordenada por valor de 'articulo3':\n{data_join_axis0.sort_values(['articulo3'])}")
+    print(f"Descripción del DF:\n{data_join_axis0.describe()}")
+
+    separador()
+    script_path= os.path.abspath(os.path.dirname(__file__))
+    csv_file= script_path + "/m61_dataTotal.csv"
+    print(f"Script path es:{script_path}")
+    print(f"Escribiendo a path es:{csv_file}")
+    data_join_axis0.to_csv(csv_file)
+    print(f"Escritura hecha con exito")
+    new_dataframe = pd.read_csv(csv_file)
+    print(f"DF desde archivo {csv_file} :\n{new_dataframe}")
+
 
 proceso()
