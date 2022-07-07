@@ -1,0 +1,29 @@
+#Mediante la terminal del sistema o la consola de Python, imprimir algunas frases como las indicadas en el enunciado que tienes en el siguiente enlace: https://ticoticotaa.blogspot.com/2022/06/ejercicio-python-01-imprimir-en-pantalla.html
+
+# Desde la terminal de python, imprime las siguientes frases:
+
+#     Hola, estoy empezando con Python
+#     Me llamo [nombre]
+#     Hola mundo!!! (tipico)
+
+print("Hola, estoy empezando con Python")
+print("Me llamo Juan")
+print("Hola mundo!!!")
+
+
+x = "tonijuex"
+print(f"Hola, {x}")
+
+
+#Crea 2 variables, una tipo texto y otra numerica. Muestra cada variable y su tipo por consola.
+entero = 5
+stringss = "hola"
+print(f"La variable entera es {entero} y su tipo es {type(entero)}")
+print(f"La variable string es \'{stringss}\' y su tipo es {type(stringss)}")
+entero = entero + 10
+stringss = stringss + " mundo"
+print(f"La variable entera es {entero} y su tipo es {type(entero)}")
+print(f"La variable string es \'{stringss}\' y su tipo es {type(stringss)}")
+
+
+
