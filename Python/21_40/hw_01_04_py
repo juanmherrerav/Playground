@@ -18,12 +18,14 @@ print(f"Hola, {x}")
 #Crea 2 variables, una tipo texto y otra numerica. Muestra cada variable y su tipo por consola.
 entero = 5
 stringss = "hola"
-print(f"La variable entera es {entero} y su tipo es {type(entero)}")
+print(f"La variable entreat es {entero} y su tipo es {type(entero)}")
 print(f"La variable string es \'{stringss}\' y su tipo es {type(stringss)}")
+print(f"Multiplicar entero y string \'{stringss*entero}\'")
+
+
+#Modifica las variables del ejercicio anterior muestra el antes y el despues de cada variable por consola.
 entero = entero + 10
 stringss = stringss + " mundo"
 print(f"La variable entera es {entero} y su tipo es {type(entero)}")
 print(f"La variable string es \'{stringss}\' y su tipo es {type(stringss)}")
-
-
 
