@@ -162,7 +162,7 @@ def proceso():
 
     separador()
     script_path= os.path.abspath(os.path.dirname(__file__))
-    csv_file= script_path + "/m61_dataTotal.csv"
+    csv_file= script_path + "/m71_dataTotal.csv"
     print(f"Script path es:{script_path}")
     print(f"Escribiendo a path es:{csv_file}")
     data_join_axis0.to_csv(csv_file)
